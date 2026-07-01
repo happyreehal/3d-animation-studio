@@ -1,0 +1,92 @@
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+
+# ============================================================
+# Virtual Environment
+# ============================================================
+venv/
+env/
+ENV/
+.venv/
+
+# ============================================================
+# IDE / Editor
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================================
+# Project Specific
+# ============================================================
+# Logs
+logs/
+*.log
+
+# Temp & Cache
+temp/
+cache/
+.thumbnails/
+
+# User Files (Projects & Backups)
+projects/
+backups/
+exports/
+
+# User Preferences (personal settings)
+user_prefs.json
+
+# Session Recovery
+cache/session_recovery.json
+
+# ============================================================
+# Assets (Optional - agar chahte ho to remove karo)
+# ============================================================
+# Big binary files skip karo
+assets/models/*.obj
+assets/models/*.fbx
+assets/models/*.gltf
+assets/textures/*.png
+assets/textures/*.jpg
+assets/audio/**/*.mp3
+assets/audio/**/*.wav
+assets/videos/*.mp4
+!assets/models/.gitkeep
+!assets/textures/.gitkeep
+!assets/audio/.gitkeep
+!assets/videos/.gitkeep
+
+# ============================================================
+# YouTube API Secrets (NEVER commit!)
+# ============================================================
+client_secrets.json
+credentials.json
+token.json
+*.credentials
+
+# ============================================================
+# OS Files
+# ============================================================
+desktop.ini
+$RECYCLE.BIN/
+
+# ============================================================
+# FFmpeg Downloaded Installer (agar hai)
+# ============================================================
+python-3.11.9.exe
+ffmpeg-*.zip

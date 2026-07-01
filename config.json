@@ -1,0 +1,318 @@
+{
+  "app": {
+    "name": "3D Animation Studio",
+    "version": "1.0.0",
+    "author": "Your Name",
+    "description": "Free Open-Source 3D Animation Tool for YouTube Content Creation"
+  },
+
+  "paths": {
+    "projects_dir": "projects",
+    "backups_dir": "backups",
+    "assets_dir": "assets",
+    "models_dir": "assets/models",
+    "textures_dir": "assets/textures",
+    "audio_dir": "assets/audio",
+    "presets_dir": "assets/presets",
+    "temp_dir": "temp",
+    "export_dir": "exports",
+    "cache_dir": "cache"
+  },
+
+  "rendering": {
+    "default_quality": "draft",
+    "draft_resolution": [1280, 720],
+    "high_resolution": [1920, 1080],
+    "default_fps": 30,
+    "available_fps": [24, 30, 60],
+    "default_art_style": "3d_realistic",
+    "available_art_styles": [
+      "3d_realistic",
+      "3d_cartoon",
+      "2d_flat",
+      "2d_anime",
+      "custom_cartoon"
+    ],
+    "preview_scale": 0.5,
+    "max_render_threads": 4,
+    "use_gpu": true
+  },
+
+  "physics": {
+    "gravity": [0, -9.81, 0],
+    "enabled": true,
+    "cloth_simulation": true,
+    "collision_detection": true,
+    "simulation_steps": 60,
+    "cloth_materials": {
+      "cotton": {
+        "stiffness": 0.8,
+        "damping": 0.1,
+        "mass": 0.3
+      },
+      "silk": {
+        "stiffness": 0.3,
+        "damping": 0.05,
+        "mass": 0.1
+      },
+      "wool": {
+        "stiffness": 0.9,
+        "damping": 0.2,
+        "mass": 0.5
+      },
+      "leather": {
+        "stiffness": 1.0,
+        "damping": 0.3,
+        "mass": 0.7
+      }
+    }
+  },
+
+  "lighting": {
+    "default_preset": "day_outdoor",
+    "presets": {
+      "day_outdoor": {
+        "sun_intensity": 1.0,
+        "sun_color": [255, 255, 200],
+        "ambient_intensity": 0.3,
+        "ambient_color": [135, 206, 235],
+        "shadow_enabled": true
+      },
+      "night_outdoor": {
+        "sun_intensity": 0.05,
+        "sun_color": [100, 100, 150],
+        "ambient_intensity": 0.1,
+        "ambient_color": [20, 20, 50],
+        "shadow_enabled": true
+      },
+      "indoor_warm": {
+        "sun_intensity": 0.0,
+        "sun_color": [255, 200, 100],
+        "ambient_intensity": 0.6,
+        "ambient_color": [255, 200, 150],
+        "shadow_enabled": true
+      },
+      "indoor_cool": {
+        "sun_intensity": 0.0,
+        "sun_color": [200, 220, 255],
+        "ambient_intensity": 0.5,
+        "ambient_color": [200, 220, 255],
+        "shadow_enabled": true
+      },
+      "studio": {
+        "sun_intensity": 0.0,
+        "sun_color": [255, 255, 255],
+        "ambient_intensity": 0.8,
+        "ambient_color": [255, 255, 255],
+        "shadow_enabled": false
+      }
+    }
+  },
+
+  "environments": {
+    "available": [
+      "forest",
+      "desert",
+      "snowy",
+      "city",
+      "beach",
+      "mountains",
+      "indoor_room",
+      "indoor_office",
+      "space",
+      "fantasy"
+    ],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "time_of_day": ["dawn", "morning", "noon", "afternoon", "dusk", "night"]
+  },
+
+  "camera": {
+    "default_fov": 60,
+    "near_clip": 0.1,
+    "far_clip": 1000.0,
+    "default_position": [0, 1.7, 5],
+    "default_target": [0, 1.0, 0],
+    "movement_speed": 5.0,
+    "rotation_speed": 2.0,
+    "presets": {
+      "wide_angle": {"fov": 90, "position": [0, 1.7, 8]},
+      "close_up": {"fov": 35, "position": [0, 1.7, 2]},
+      "over_shoulder": {"fov": 60, "position": [0.8, 1.8, 3]},
+      "birds_eye": {"fov": 60, "position": [0, 10, 0]},
+      "low_angle": {"fov": 60, "position": [0, 0.3, 5]}
+    },
+    "auto_movements": {
+      "pan_speed": 1.0,
+      "zoom_speed": 0.5,
+      "tracking_speed": 2.0
+    }
+  },
+
+  "audio": {
+    "default_sample_rate": 44100,
+    "default_bitrate": 320,
+    "available_bitrates": [128, 192, 256, 320],
+    "available_sample_rates": [22050, 44100, 48000],
+    "default_tts_engine": "TTS",
+    "available_tts_engines": ["TTS", "pyttsx3", "gTTS"],
+    "supported_languages": [
+      "en", "hi", "es", "fr", "de", "zh", "ar", "pt", "ru", "ja"
+    ],
+    "reverb_presets": {
+      "small_room": {"reverb_time": 0.3, "damping": 0.7},
+      "large_room": {"reverb_time": 0.8, "damping": 0.4},
+      "hall": {"reverb_time": 1.5, "damping": 0.2},
+      "outdoor": {"reverb_time": 0.1, "damping": 0.9},
+      "cave": {"reverb_time": 2.5, "damping": 0.1}
+    }
+  },
+
+  "animation": {
+    "default_pose": "idle",
+    "available_presets": [
+      "idle",
+      "walking",
+      "running",
+      "talking",
+      "sitting",
+      "waving",
+      "jumping",
+      "dancing",
+      "fighting",
+      "falling"
+    ],
+    "transition_speed": 0.3,
+    "ik_enabled": true
+  },
+
+  "vfx": {
+    "available_effects": [
+      "fire",
+      "smoke",
+      "rain",
+      "snow",
+      "magic_sparkle",
+      "explosion",
+      "lightning",
+      "fog",
+      "confetti",
+      "blood_splash"
+    ],
+    "particle_count": {
+      "low": 1000,
+      "medium": 5000,
+      "high": 15000
+    }
+  },
+
+  "color_grading": {
+    "available_filters": [
+      "none",
+      "vintage",
+      "dramatic",
+      "warm",
+      "cool",
+      "cinematic",
+      "horror",
+      "anime",
+      "noir",
+      "vibrant"
+    ]
+  },
+
+  "export": {
+    "default_format": "mp4",
+    "available_formats": ["mp4", "webm", "avi"],
+    "social_media_presets": {
+      "youtube": {
+        "resolution": [1920, 1080],
+        "fps": 30,
+        "bitrate": "8M",
+        "aspect_ratio": "16:9"
+      },
+      "youtube_shorts": {
+        "resolution": [1080, 1920],
+        "fps": 60,
+        "bitrate": "8M",
+        "aspect_ratio": "9:16"
+      },
+      "instagram": {
+        "resolution": [1080, 1080],
+        "fps": 30,
+        "bitrate": "6M",
+        "aspect_ratio": "1:1"
+      },
+      "instagram_reel": {
+        "resolution": [1080, 1920],
+        "fps": 30,
+        "bitrate": "6M",
+        "aspect_ratio": "9:16"
+      },
+      "tiktok": {
+        "resolution": [1080, 1920],
+        "fps": 60,
+        "bitrate": "8M",
+        "aspect_ratio": "9:16"
+      },
+      "twitter": {
+        "resolution": [1280, 720],
+        "fps": 30,
+        "bitrate": "5M",
+        "aspect_ratio": "16:9"
+      }
+    },
+    "subtitle_formats": ["srt", "vtt", "ass"]
+  },
+
+  "ui": {
+    "theme": "dark",
+    "accent_color": "#00D4FF",
+    "font_family": "Segoe UI",
+    "font_size": 12,
+    "panel_opacity": 0.95,
+    "animation_speed": 200,
+    "auto_save_interval": 300,
+    "max_backups": 10,
+    "recent_projects_limit": 15
+  },
+
+  "shortcuts": {
+    "save": "Ctrl+S",
+    "save_as": "Ctrl+Shift+S",
+    "undo": "Ctrl+Z",
+    "redo": "Ctrl+Y",
+    "play": "Space",
+    "stop": "Escape",
+    "render": "F12",
+    "new_project": "Ctrl+N",
+    "open_project": "Ctrl+O",
+    "export": "Ctrl+E",
+    "import_model": "Ctrl+I",
+    "delete": "Delete",
+    "duplicate": "Ctrl+D",
+    "focus_camera": "Numpad_0",
+    "top_view": "Numpad_7",
+    "front_view": "Numpad_1",
+    "side_view": "Numpad_3",
+    "timeline_zoom_in": "Ctrl+Equal",
+    "timeline_zoom_out": "Ctrl+Minus",
+    "add_keyframe": "K",
+    "toggle_fullscreen": "F11"
+  },
+
+  "project_defaults": {
+    "scene_duration": 10.0,
+    "canvas_width": 1920,
+    "canvas_height": 1080,
+    "project_fps": 30,
+    "background_color": [30, 30, 30]
+  },
+
+  "youtube_api": {
+    "client_secrets_file": "client_secrets.json",
+    "scopes": [
+      "https://www.googleapis.com/auth/youtube.upload",
+      "https://www.googleapis.com/auth/youtube"
+    ]
+  }
+}
