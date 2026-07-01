@@ -420,23 +420,70 @@ class AnimationStudioApp:
         try:
             from src.ui.main_window import MainWindow
 
-            self.main_window = MainWindow(
-                config=self.config,
-                project_manager=self.project_manager,
-                render_engine=self.render_engine,
-                physics_engine=self.physics_engine,
-                tts_engine=self.tts_engine,
-                lipsync_engine=self.lipsync_engine,
-                audio_engine=self.audio_engine,
-                asset_library=self.asset_library,
-                auto_save=self.auto_save,
-                base_dir=BASE_DIR
-            )
+            # Naya MainWindow sirf config leta hai
+            self.main_window_wrapper = MainWindow(config=self.config)
+            # Actual Qt window nikaal lo
+            self.main_window = self.main_window_wrapper.get_window()
+
+            # Sample scene load karo demo ke liye
+            self._load_sample_scene()
+
             self.logger.info("Main window created.")
         except ImportError as e:
             self.logger.warning(f"UI import pending: {e}")
             self._create_placeholder_window()
+        except Exception as e:
+            self.logger.error(f"Main window error: {e}")
+            import traceback
+            traceback.print_exc()
+            self._create_placeholder_window()
 
+    def _load_sample_scene(self):
+        """Sample scene aur assets load karo demo ke liye"""
+        try:
+            if not self.main_window_wrapper:
+                return
+
+            wrapper = self.main_window_wrapper
+
+            # Sample scene objects
+            if wrapper.scene_model:
+                wrapper.scene_model.add_object("Main Camera", "camera")
+                wrapper.scene_model.add_object("Sun Light", "light")
+                wrapper.scene_model.add_object("Ground Plane", "mesh")
+                wrapper.scene_model.add_object("Hero Character", "character")
+
+                if wrapper.hierarchy_widget:
+                    wrapper.hierarchy_widget.refresh_tree()
+
+            # Sample timeline clips
+            if wrapper.timeline_model:
+                video_tracks = wrapper.timeline_model.get_tracks_by_type("video")
+                if video_tracks:
+                    wrapper.timeline_model.add_clip(
+                        video_tracks[0].id, "Intro Scene", 0, 90
+                    )
+                    wrapper.timeline_model.add_clip(
+                        video_tracks[0].id, "Main Content", 90, 180
+                    )
+
+                audio_tracks = wrapper.timeline_model.get_tracks_by_type("audio")
+                if audio_tracks:
+                    wrapper.timeline_model.add_clip(
+                        audio_tracks[0].id, "Background Music", 0, 270
+                    )
+
+            # Sample assets
+            if wrapper.asset_model:
+                if len(wrapper.asset_model.get_all_assets()) < 5:
+                    wrapper.asset_model.create_sample_assets()
+                if wrapper.asset_browser:
+                    wrapper.asset_browser.refresh()
+
+            self.logger.info("Sample scene loaded")
+
+        except Exception as e:
+            self.logger.warning(f"Sample scene load warning: {e}")
     def _create_placeholder_window(self):
         """
         Jab tak saari files na ban jayein,

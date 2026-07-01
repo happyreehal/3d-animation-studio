@@ -1,0 +1,983 @@
+[
+  {
+    "id": "file.new",
+    "name": "New Project",
+    "description": "Naya project banao",
+    "category": "File",
+    "key": "N",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "new_project"
+  },
+  {
+    "id": "file.open",
+    "name": "Open Project",
+    "description": "Existing project kholo",
+    "category": "File",
+    "key": "O",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "open_project"
+  },
+  {
+    "id": "file.save",
+    "name": "Save Project",
+    "description": "Project save karo",
+    "category": "File",
+    "key": "S",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "save_project"
+  },
+  {
+    "id": "file.save_as",
+    "name": "Save As",
+    "description": "Naye naam se save karo",
+    "category": "File",
+    "key": "S",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "save_project_as"
+  },
+  {
+    "id": "file.import",
+    "name": "Import Asset",
+    "description": "3D model ya asset import karo",
+    "category": "File",
+    "key": "I",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "import_asset"
+  },
+  {
+    "id": "file.export",
+    "name": "Export Video",
+    "description": "Video export karo",
+    "category": "File",
+    "key": "E",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "export_video"
+  },
+  {
+    "id": "file.quit",
+    "name": "Quit",
+    "description": "Application band karo",
+    "category": "File",
+    "key": "Q",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "quit_app"
+  },
+  {
+    "id": "edit.undo",
+    "name": "Undo",
+    "description": "Pichla action wapas lo",
+    "category": "Edit",
+    "key": "Z",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "undo"
+  },
+  {
+    "id": "edit.redo",
+    "name": "Redo",
+    "description": "Undo hua action phir karo",
+    "category": "Edit",
+    "key": "Y",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "redo"
+  },
+  {
+    "id": "edit.redo_alt",
+    "name": "Redo (Alt)",
+    "description": "Undo hua action phir karo (alternate)",
+    "category": "Edit",
+    "key": "Z",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "redo"
+  },
+  {
+    "id": "edit.cut",
+    "name": "Cut",
+    "description": "Selected item cut karo",
+    "category": "Edit",
+    "key": "X",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "cut"
+  },
+  {
+    "id": "edit.copy",
+    "name": "Copy",
+    "description": "Selected item copy karo",
+    "category": "Edit",
+    "key": "C",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "copy"
+  },
+  {
+    "id": "edit.paste",
+    "name": "Paste",
+    "description": "Clipboard se paste karo",
+    "category": "Edit",
+    "key": "V",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "paste"
+  },
+  {
+    "id": "edit.duplicate",
+    "name": "Duplicate",
+    "description": "Selected object duplicate karo",
+    "category": "Edit",
+    "key": "D",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "duplicate"
+  },
+  {
+    "id": "edit.delete",
+    "name": "Delete",
+    "description": "Selected object delete karo",
+    "category": "Edit",
+    "key": "Delete",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "delete_selected"
+  },
+  {
+    "id": "edit.select_all",
+    "name": "Select All",
+    "description": "Sabhi objects select karo",
+    "category": "Edit",
+    "key": "A",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "select_all"
+  },
+  {
+    "id": "edit.deselect_all",
+    "name": "Deselect All",
+    "description": "Selection clear karo",
+    "category": "Edit",
+    "key": "A",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "deselect_all"
+  },
+  {
+    "id": "edit.preferences",
+    "name": "Preferences",
+    "description": "Settings/Preferences kholo",
+    "category": "Edit",
+    "key": ",",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "open_preferences"
+  },
+  {
+    "id": "view.fullscreen",
+    "name": "Toggle Fullscreen",
+    "description": "Fullscreen toggle karo",
+    "category": "View",
+    "key": "F11",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_fullscreen"
+  },
+  {
+    "id": "view.zoom_in",
+    "name": "Zoom In",
+    "description": "Viewport zoom in",
+    "category": "View",
+    "key": "+",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "zoom_in"
+  },
+  {
+    "id": "view.zoom_out",
+    "name": "Zoom Out",
+    "description": "Viewport zoom out",
+    "category": "View",
+    "key": "-",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "zoom_out"
+  },
+  {
+    "id": "view.zoom_fit",
+    "name": "Zoom to Fit",
+    "description": "Saari objects fit karo view mein",
+    "category": "View",
+    "key": "F",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "zoom_fit"
+  },
+  {
+    "id": "view.reset_view",
+    "name": "Reset View",
+    "description": "Camera view reset karo",
+    "category": "View",
+    "key": "Numpad0",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "reset_view"
+  },
+  {
+    "id": "view.perspective_toggle",
+    "name": "Toggle Perspective",
+    "description": "Perspective/Orthographic toggle",
+    "category": "View",
+    "key": "Numpad5",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_perspective"
+  },
+  {
+    "id": "view.front",
+    "name": "Front View",
+    "description": "Front view se dekho",
+    "category": "View",
+    "key": "Numpad1",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "view_front"
+  },
+  {
+    "id": "view.side",
+    "name": "Side View",
+    "description": "Side view se dekho",
+    "category": "View",
+    "key": "Numpad3",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "view_side"
+  },
+  {
+    "id": "view.top",
+    "name": "Top View",
+    "description": "Top view se dekho",
+    "category": "View",
+    "key": "Numpad7",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "view_top"
+  },
+  {
+    "id": "view.wireframe",
+    "name": "Toggle Wireframe",
+    "description": "Wireframe mode toggle karo",
+    "category": "View",
+    "key": "W",
+    "modifiers": [
+      "Alt"
+    ],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_wireframe"
+  },
+  {
+    "id": "view.hide_panels",
+    "name": "Hide/Show Panels",
+    "description": "Side panels hide ya show karo",
+    "category": "View",
+    "key": "Tab",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_panels"
+  },
+  {
+    "id": "scene.add_character",
+    "name": "Add Character",
+    "description": "Naya character scene mein add karo",
+    "category": "Scene",
+    "key": "C",
+    "modifiers": [
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "add_character"
+  },
+  {
+    "id": "scene.add_object",
+    "name": "Add Object",
+    "description": "Naya 3D object add karo",
+    "category": "Scene",
+    "key": "A",
+    "modifiers": [
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "add_object"
+  },
+  {
+    "id": "scene.add_light",
+    "name": "Add Light",
+    "description": "Naya light add karo",
+    "category": "Scene",
+    "key": "L",
+    "modifiers": [
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "add_light"
+  },
+  {
+    "id": "scene.add_camera",
+    "name": "Add Camera",
+    "description": "Naya camera add karo",
+    "category": "Scene",
+    "key": "K",
+    "modifiers": [
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "add_camera"
+  },
+  {
+    "id": "scene.group",
+    "name": "Group Objects",
+    "description": "Selected objects ko group karo",
+    "category": "Scene",
+    "key": "G",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "group_objects"
+  },
+  {
+    "id": "scene.ungroup",
+    "name": "Ungroup",
+    "description": "Group tod do",
+    "category": "Scene",
+    "key": "G",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "ungroup_objects"
+  },
+  {
+    "id": "scene.hide_selected",
+    "name": "Hide Selected",
+    "description": "Selected objects hide karo",
+    "category": "Scene",
+    "key": "H",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "hide_selected"
+  },
+  {
+    "id": "scene.show_all",
+    "name": "Show All",
+    "description": "Sabhi hidden objects dikhaao",
+    "category": "Scene",
+    "key": "H",
+    "modifiers": [
+      "Alt"
+    ],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "show_all"
+  },
+  {
+    "id": "anim.insert_keyframe",
+    "name": "Insert Keyframe",
+    "description": "Current frame pe keyframe insert karo",
+    "category": "Animation",
+    "key": "K",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "insert_keyframe"
+  },
+  {
+    "id": "anim.delete_keyframe",
+    "name": "Delete Keyframe",
+    "description": "Current keyframe delete karo",
+    "category": "Animation",
+    "key": "K",
+    "modifiers": [
+      "Alt"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "delete_keyframe"
+  },
+  {
+    "id": "anim.next_keyframe",
+    "name": "Next Keyframe",
+    "description": "Agla keyframe",
+    "category": "Animation",
+    "key": "Right",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "next_keyframe"
+  },
+  {
+    "id": "anim.prev_keyframe",
+    "name": "Previous Keyframe",
+    "description": "Pichla keyframe",
+    "category": "Animation",
+    "key": "Left",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "prev_keyframe"
+  },
+  {
+    "id": "anim.bake",
+    "name": "Bake Animation",
+    "description": "Animation bake karo",
+    "category": "Animation",
+    "key": "B",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "bake_animation"
+  },
+  {
+    "id": "camera.look_through",
+    "name": "Look Through Camera",
+    "description": "Active camera se dekho",
+    "category": "Camera",
+    "key": "Numpad0",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "look_through_camera"
+  },
+  {
+    "id": "camera.set_active",
+    "name": "Set Active Camera",
+    "description": "Selected camera ko active banao",
+    "category": "Camera",
+    "key": "Numpad0",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "set_active_camera"
+  },
+  {
+    "id": "camera.align_to_view",
+    "name": "Align Camera to View",
+    "description": "Camera ko current view pe align karo",
+    "category": "Camera",
+    "key": "Numpad0",
+    "modifiers": [
+      "Ctrl",
+      "Alt"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "align_camera_to_view"
+  },
+  {
+    "id": "render.render_image",
+    "name": "Render Image",
+    "description": "Single frame render karo",
+    "category": "Render",
+    "key": "F12",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "render_image"
+  },
+  {
+    "id": "render.render_animation",
+    "name": "Render Animation",
+    "description": "Puri animation render karo",
+    "category": "Render",
+    "key": "F12",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "render_animation"
+  },
+  {
+    "id": "render.cancel",
+    "name": "Cancel Render",
+    "description": "Render cancel karo",
+    "category": "Render",
+    "key": "Escape",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "cancel_render"
+  },
+  {
+    "id": "render.open_output",
+    "name": "Open Render Output",
+    "description": "Render output folder kholo",
+    "category": "Render",
+    "key": "F12",
+    "modifiers": [
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "open_render_output"
+  },
+  {
+    "id": "timeline.play_pause",
+    "name": "Play / Pause",
+    "description": "Animation play ya pause karo",
+    "category": "Playback",
+    "key": "Space",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "play_pause"
+  },
+  {
+    "id": "timeline.stop",
+    "name": "Stop",
+    "description": "Playback stop karo aur start pe jao",
+    "category": "Playback",
+    "key": "Space",
+    "modifiers": [
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "stop"
+  },
+  {
+    "id": "timeline.next_frame",
+    "name": "Next Frame",
+    "description": "Ek frame aage jao",
+    "category": "Timeline",
+    "key": "Right",
+    "modifiers": [],
+    "context": "timeline",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "next_frame"
+  },
+  {
+    "id": "timeline.prev_frame",
+    "name": "Previous Frame",
+    "description": "Ek frame peeche jao",
+    "category": "Timeline",
+    "key": "Left",
+    "modifiers": [],
+    "context": "timeline",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "prev_frame"
+  },
+  {
+    "id": "timeline.go_start",
+    "name": "Go to Start",
+    "description": "Timeline ke start pe jao",
+    "category": "Timeline",
+    "key": "Home",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "go_to_start"
+  },
+  {
+    "id": "timeline.go_end",
+    "name": "Go to End",
+    "description": "Timeline ke end pe jao",
+    "category": "Timeline",
+    "key": "End",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "go_to_end"
+  },
+  {
+    "id": "timeline.zoom_in",
+    "name": "Timeline Zoom In",
+    "description": "Timeline zoom in karo",
+    "category": "Timeline",
+    "key": "=",
+    "modifiers": [],
+    "context": "timeline",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "timeline_zoom_in"
+  },
+  {
+    "id": "timeline.zoom_out",
+    "name": "Timeline Zoom Out",
+    "description": "Timeline zoom out karo",
+    "category": "Timeline",
+    "key": "-",
+    "modifiers": [],
+    "context": "timeline",
+    "enabled": true,
+    "repeatable": true,
+    "action_name": "timeline_zoom_out"
+  },
+  {
+    "id": "timeline.split_clip",
+    "name": "Split Clip",
+    "description": "Current position pe clip split karo",
+    "category": "Timeline",
+    "key": "B",
+    "modifiers": [],
+    "context": "timeline",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "split_clip"
+  },
+  {
+    "id": "timeline.add_marker",
+    "name": "Add Marker",
+    "description": "Current frame pe marker add karo",
+    "category": "Timeline",
+    "key": "M",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "add_marker"
+  },
+  {
+    "id": "window.scene_hierarchy",
+    "name": "Scene Hierarchy",
+    "description": "Scene hierarchy panel toggle",
+    "category": "Window",
+    "key": "1",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_scene_hierarchy"
+  },
+  {
+    "id": "window.properties",
+    "name": "Properties Panel",
+    "description": "Properties panel toggle",
+    "category": "Window",
+    "key": "2",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_properties"
+  },
+  {
+    "id": "window.asset_browser",
+    "name": "Asset Browser",
+    "description": "Asset browser toggle",
+    "category": "Window",
+    "key": "3",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_asset_browser"
+  },
+  {
+    "id": "window.timeline",
+    "name": "Timeline",
+    "description": "Timeline panel toggle",
+    "category": "Window",
+    "key": "4",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_timeline"
+  },
+  {
+    "id": "window.console",
+    "name": "Console/Log",
+    "description": "Debug console toggle",
+    "category": "Window",
+    "key": "`",
+    "modifiers": [
+      "Ctrl"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "toggle_console"
+  },
+  {
+    "id": "window.shortcuts_help",
+    "name": "Keyboard Shortcuts",
+    "description": "Shortcuts list dekho",
+    "category": "Window",
+    "key": "F1",
+    "modifiers": [],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "show_shortcuts"
+  },
+  {
+    "id": "tools.select",
+    "name": "Select Tool",
+    "description": "Selection tool activate karo",
+    "category": "Tools",
+    "key": "Q",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "tool_select"
+  },
+  {
+    "id": "tools.move",
+    "name": "Move Tool",
+    "description": "Move/Translate tool",
+    "category": "Tools",
+    "key": "G",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "tool_move"
+  },
+  {
+    "id": "tools.rotate",
+    "name": "Rotate Tool",
+    "description": "Rotation tool",
+    "category": "Tools",
+    "key": "R",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "tool_rotate"
+  },
+  {
+    "id": "tools.scale",
+    "name": "Scale Tool",
+    "description": "Scale tool",
+    "category": "Tools",
+    "key": "S",
+    "modifiers": [],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "tool_scale"
+  },
+  {
+    "id": "tools.measure",
+    "name": "Measure Tool",
+    "description": "Distance measure tool",
+    "category": "Tools",
+    "key": "M",
+    "modifiers": [
+      "Shift"
+    ],
+    "context": "viewport",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "tool_measure"
+  },
+  {
+    "id": "export.quick_export",
+    "name": "Quick Export",
+    "description": "Default settings se jaldi export karo",
+    "category": "Export",
+    "key": "E",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "quick_export"
+  },
+  {
+    "id": "export.youtube",
+    "name": "Export for YouTube",
+    "description": "YouTube ke liye export karo",
+    "category": "Export",
+    "key": "Y",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "export_youtube"
+  },
+  {
+    "id": "export.batch",
+    "name": "Batch Export",
+    "description": "Multiple formats mein export karo",
+    "category": "Export",
+    "key": "B",
+    "modifiers": [
+      "Ctrl",
+      "Shift"
+    ],
+    "context": "global",
+    "enabled": true,
+    "repeatable": false,
+    "action_name": "batch_export"
+  }
+]
