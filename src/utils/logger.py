@@ -287,9 +287,34 @@ class LoggerManager:
     def _suppress_third_party(self):
         """Third-party libraries ke unnecessary logs suppress karta hai"""
         suppress_list = [
-            "PIL", "urllib3", "matplotlib", "numba",
-            "torch", "transformers", "trimesh",
-            "OpenGL", "asyncio", "pyglet",
+            # Image/Graphics libraries
+            "PIL",
+            "matplotlib",
+            "OpenGL",
+            "pyglet",
+            
+            # Network libraries  
+            "urllib3",
+            
+            # ML/AI libraries
+            "numba",
+            "torch",
+            "transformers",
+            
+            # 3D libraries
+            "trimesh",
+            
+            # Async
+            "asyncio",
+            
+            # ✅ NEW: Windows COM / pyttsx3 ke noisy logs suppress karo
+            "comtypes",
+            "comtypes.client",
+            "comtypes.client._managing",
+            "comtypes.client._generate", 
+            "comtypes.client._create",
+            "comtypes._post_coinit",
+            "comtypes._post_coinit.unknwn",
         ]
         for lib in suppress_list:
             logging.getLogger(lib).setLevel(logging.WARNING)
@@ -381,6 +406,7 @@ def setup_logging(logs_dir: Optional[str] = None,
         logs_dir=logs_dir,
         log_level=log_level,
         use_colors=use_colors
+    
     )
 
 
