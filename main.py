@@ -192,8 +192,9 @@ def check_dependencies():
 def check_qt():
     """PyQt5 specifically check karta hai kyunki ye sabse zaroori hai"""
     try:
-        from PyQt5.QtWidgets import QApplication
-        from PyQt5.QtCore import Qt
+        from PyQt5.QtWidgets import QApplication  # type: ignore[import]
+        import importlib
+        importlib.import_module("PyQt5.QtCore")
         return True
     except ImportError:
         print("[CRITICAL ERROR] PyQt5 is not installed.")
@@ -210,7 +211,7 @@ def show_splash(app):
     Loading progress bhi dikhata hai.
     """
     from PyQt5.QtWidgets import QSplashScreen, QLabel
-    from PyQt5.QtGui import QPixmap, QColor, QFont, QPainter, QLinearGradient
+    from PyQt5.QtGui import QPixmap, QColor, QFont, QPainter, QLinearGradient  # type: ignore[import]
     from PyQt5.QtCore import Qt, QTimer
 
     # Splash screen image banao (custom drawn)
@@ -494,7 +495,7 @@ class AnimationStudioApp:
             QWidget, QProgressBar
         )
         from PyQt5.QtCore import Qt
-        from PyQt5.QtGui import QFont, QColor, QPalette
+        from PyQt5.QtGui import QFont, QColor, QPalette # type: ignore
 
         class PlaceholderWindow(QMainWindow):
             def __init__(self):

@@ -608,7 +608,7 @@ class TTSInterface:
         if self._tts_available and self._tts_engine:
             try:
                 # Try real TTS
-                result = self._tts_engine.generate(
+                result = self._tts_engine.synthesize(
                     text        = text,
                     output_path = output_path,
                     voice_id    = voice_id,

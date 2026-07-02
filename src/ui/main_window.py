@@ -34,7 +34,7 @@ logger = get_logger("MainWindow")
 class MainWindow:
     """
     3D Animation Studio ka Main Window.
-    
+
     Sab kuch integrate karta hai:
     - Toolbar (top)
     - Scene Hierarchy (left)
@@ -111,7 +111,9 @@ class MainWindow:
 
             # Main window
             self._window = QMainWindow()
-            self._window.setWindowTitle("3D Animation Studio - Untitled Project")
+            self._window.setWindowTitle(
+                "3D Animation Studio - Untitled Project"
+            )
             self._window.resize(1600, 900)
             self._window.setDockNestingEnabled(True)
             self._window.setDockOptions(
@@ -146,7 +148,9 @@ class MainWindow:
             logger.info("✅ Main window build complete")
 
         except ImportError:
-            logger.error("PyQt5 available nahi hai - main window nahi ban sakti")
+            logger.error(
+                "PyQt5 available nahi hai - main window nahi ban sakti"
+            )
         except Exception as e:
             logger.error(f"Main window build error: {e}")
             import traceback
@@ -223,6 +227,20 @@ class MainWindow:
 
             file_menu.addSeparator()
 
+            # ── ✨ NEW: Generate from Script ──────────────────
+            generate_action = QAction(
+                "🎬 Generate from Script...", self._window
+            )
+            generate_action.setShortcut("Ctrl+G")
+            generate_action.setStatusTip(
+                "Script likhо → Automatic MP4 video generate karo!"
+            )
+            generate_action.triggered.connect(self._on_generate_from_script)
+            file_menu.addAction(generate_action)
+            # ─────────────────────────────────────────────────
+
+            file_menu.addSeparator()
+
             save_action = QAction("💾 Save", self._window)
             save_action.setShortcut("Ctrl+S")
             save_action.triggered.connect(self._on_save_project)
@@ -294,7 +312,9 @@ class MainWindow:
             # ===== VIEW MENU =====
             view_menu = menu_bar.addMenu("&View")
 
-            fullscreen_action = QAction("Toggle Fullscreen", self._window)
+            fullscreen_action = QAction(
+                "Toggle Fullscreen", self._window
+            )
             fullscreen_action.setShortcut("F11")
             fullscreen_action.triggered.connect(self._on_fullscreen)
             view_menu.addAction(fullscreen_action)
@@ -303,8 +323,10 @@ class MainWindow:
 
             # Panel toggles
             self._panel_actions = {}
-            for panel_name in ["Scene Hierarchy", "Properties", "Timeline",
-                               "Assets", "Toolbar"]:
+            for panel_name in [
+                "Scene Hierarchy", "Properties",
+                "Timeline", "Assets", "Toolbar"
+            ]:
                 action = QAction(f"Show {panel_name}", self._window)
                 action.setCheckable(True)
                 action.setChecked(True)
@@ -373,19 +395,25 @@ class MainWindow:
 
             render_menu.addSeparator()
 
-            youtube_upload = QAction("📺 Upload to YouTube...", self._window)
+            youtube_upload = QAction(
+                "📺 Upload to YouTube...", self._window
+            )
             youtube_upload.triggered.connect(self._on_youtube_upload)
             render_menu.addAction(youtube_upload)
 
             # ===== HELP MENU =====
             help_menu = menu_bar.addMenu("&Help")
 
-            shortcuts_action = QAction("⌨️ Keyboard Shortcuts", self._window)
+            shortcuts_action = QAction(
+                "⌨️ Keyboard Shortcuts", self._window
+            )
             shortcuts_action.setShortcut("F1")
             shortcuts_action.triggered.connect(self._on_show_shortcuts)
             help_menu.addAction(shortcuts_action)
 
-            github_action = QAction("⭐ GitHub Repository", self._window)
+            github_action = QAction(
+                "⭐ GitHub Repository", self._window
+            )
             github_action.triggered.connect(self._on_open_github)
             help_menu.addAction(github_action)
 
@@ -532,7 +560,7 @@ class MainWindow:
                         self._docks["Scene Hierarchy"],
                         dock
                     )
-                    # Hierarchy pehle dikhaao
+                    # Hierarchy pehle dikhao
                     self._docks["Scene Hierarchy"].raise_()
 
             except Exception as e:
@@ -583,25 +611,58 @@ class MainWindow:
 
         try:
             # File
-            self.shortcuts_manager.register_action("new_project", self._on_new_project)
-            self.shortcuts_manager.register_action("open_project", self._on_open_project)
-            self.shortcuts_manager.register_action("save_project", self._on_save_project)
-            self.shortcuts_manager.register_action("save_project_as", self._on_save_as)
-            self.shortcuts_manager.register_action("import_asset", self._on_import)
-            self.shortcuts_manager.register_action("export_video", self._on_export)
-            self.shortcuts_manager.register_action("quit_app", self._on_quit)
-            self.shortcuts_manager.register_action("open_preferences", self._on_preferences)
+            self.shortcuts_manager.register_action(
+                "new_project", self._on_new_project
+            )
+            self.shortcuts_manager.register_action(
+                "open_project", self._on_open_project
+            )
+            self.shortcuts_manager.register_action(
+                "save_project", self._on_save_project
+            )
+            self.shortcuts_manager.register_action(
+                "save_project_as", self._on_save_as
+            )
+            self.shortcuts_manager.register_action(
+                "import_asset", self._on_import
+            )
+            self.shortcuts_manager.register_action(
+                "export_video", self._on_export
+            )
+            self.shortcuts_manager.register_action(
+                "quit_app", self._on_quit
+            )
+            self.shortcuts_manager.register_action(
+                "open_preferences", self._on_preferences
+            )
+
+            # ── DISABLED: Prevents ambiguous shortcut ──────────
+            # self.shortcuts_manager.register_action(
+            #     "generate_from_script", self._on_generate_from_script
+            # )
+            # Menu item uses Ctrl+G directly
+            # ──────────────────────────────────────────────────
 
             # Edit
             self.shortcuts_manager.register_action("undo", self._on_undo)
             self.shortcuts_manager.register_action("redo", self._on_redo)
-            self.shortcuts_manager.register_action("duplicate", self._on_duplicate)
-            self.shortcuts_manager.register_action("delete_selected", self._on_delete)
-            self.shortcuts_manager.register_action("select_all", self._on_select_all)
+            self.shortcuts_manager.register_action(
+                "duplicate", self._on_duplicate
+            )
+            self.shortcuts_manager.register_action(
+                "delete_selected", self._on_delete
+            )
+            self.shortcuts_manager.register_action(
+                "select_all", self._on_select_all
+            )
 
             # View
-            self.shortcuts_manager.register_action("toggle_fullscreen", self._on_fullscreen)
-            self.shortcuts_manager.register_action("toggle_theme", self._on_toggle_theme)
+            self.shortcuts_manager.register_action(
+                "toggle_fullscreen", self._on_fullscreen
+            )
+            self.shortcuts_manager.register_action(
+                "toggle_theme", self._on_toggle_theme
+            )
 
             # Scene
             self.shortcuts_manager.register_action(
@@ -622,7 +683,9 @@ class MainWindow:
             )
 
             # Render
-            self.shortcuts_manager.register_action("render_image", self._on_render_frame)
+            self.shortcuts_manager.register_action(
+                "render_image", self._on_render_frame
+            )
             self.shortcuts_manager.register_action(
                 "render_animation", self._on_render_animation
             )
@@ -630,27 +693,44 @@ class MainWindow:
             # Playback
             self.shortcuts_manager.register_action(
                 "play_pause",
-                lambda: self.timeline_model.toggle_play_pause() if self.timeline_model else None
+                lambda: (
+                    self.timeline_model.toggle_play_pause()
+                    if self.timeline_model else None
+                )
             )
             self.shortcuts_manager.register_action(
                 "next_frame",
-                lambda: self.timeline_model.next_frame() if self.timeline_model else None
+                lambda: (
+                    self.timeline_model.next_frame()
+                    if self.timeline_model else None
+                )
             )
             self.shortcuts_manager.register_action(
                 "prev_frame",
-                lambda: self.timeline_model.prev_frame() if self.timeline_model else None
+                lambda: (
+                    self.timeline_model.prev_frame()
+                    if self.timeline_model else None
+                )
             )
             self.shortcuts_manager.register_action(
                 "go_to_start",
-                lambda: self.timeline_model.go_to_start() if self.timeline_model else None
+                lambda: (
+                    self.timeline_model.go_to_start()
+                    if self.timeline_model else None
+                )
             )
             self.shortcuts_manager.register_action(
                 "go_to_end",
-                lambda: self.timeline_model.go_to_end() if self.timeline_model else None
+                lambda: (
+                    self.timeline_model.go_to_end()
+                    if self.timeline_model else None
+                )
             )
 
             # Help
-            self.shortcuts_manager.register_action("show_shortcuts", self._on_show_shortcuts)
+            self.shortcuts_manager.register_action(
+                "show_shortcuts", self._on_show_shortcuts
+            )
 
             # Bind to window
             self.shortcuts_manager.bind_to_qt_widget(self._window)
@@ -723,9 +803,11 @@ class MainWindow:
                 self._window.setWindowTitle(
                     f"3D Animation Studio - {settings.name}"
                 )
-                self._set_status(f"✅ Naya project banaya: {settings.name}")
+                self._set_status(
+                    f"✅ Naya project banaya: {settings.name}"
+                )
 
-                # Default character add karo
+                # Default objects add karo
                 if self.scene_model:
                     self.scene_model.add_object("Main Camera", "camera")
                     self.scene_model.add_object("Sun Light", "light")
@@ -748,7 +830,9 @@ class MainWindow:
                 self._window.setWindowTitle(
                     f"3D Animation Studio - {Path(path).name}"
                 )
-                self._set_status(f"✅ Project loaded: {Path(path).name}")
+                self._set_status(
+                    f"✅ Project loaded: {Path(path).name}"
+                )
 
         except Exception as e:
             logger.error(f"Open project error: {e}")
@@ -760,9 +844,12 @@ class MainWindow:
             return
 
         try:
-            self._set_status(f"💾 Saving: {Path(self._current_project_path).name}")
+            self._set_status(
+                f"💾 Saving: {Path(self._current_project_path).name}"
+            )
             self._project_dirty = False
             # TODO: Actual save logic
+
         except Exception as e:
             logger.error(f"Save error: {e}")
 
@@ -820,7 +907,6 @@ class MainWindow:
             )
 
             if result == DialogResult.ACCEPTED:
-                # Progress dialog
                 progress = StudioDialogs.show_progress_dialog(
                     title         = "Exporting Video",
                     message       = f"Exporting: {settings.preset}",
@@ -829,7 +915,6 @@ class MainWindow:
                 )
                 progress.show()
 
-                # Simulate export
                 import time as _t
                 for i in range(0, 101, 5):
                     progress.update(
@@ -840,7 +925,9 @@ class MainWindow:
                         break
 
                 progress.close()
-                self._set_status(f"✅ Exported: {settings.output_path}")
+                self._set_status(
+                    f"✅ Exported: {settings.output_path}"
+                )
 
         except Exception as e:
             logger.error(f"Export error: {e}")
@@ -867,12 +954,15 @@ class MainWindow:
 
             if self._project_dirty:
                 confirmed = StudioDialogs.show_confirm_dialog(
-                    title   = "Unsaved Changes",
-                    message = "Save nahi kiye changes hain. Kya close karna hai?",
-                    parent  = self._window,
+                    title         = "Unsaved Changes",
+                    message       = (
+                        "Save nahi kiye changes hain. "
+                        "Kya close karna hai?"
+                    ),
+                    parent        = self._window,
                     theme_manager = self.theme_manager,
                     confirm_text  = "Close Anyway",
-                    danger  = True,
+                    danger        = True,
                 )
                 if not confirmed:
                     return
@@ -882,6 +972,52 @@ class MainWindow:
 
         except Exception as e:
             logger.error(f"Quit error: {e}")
+
+    # ── ✨ NEW HANDLER ─────────────────────────────────────────
+
+    def _on_generate_from_script(self):
+        """
+        🎬 Script Input Dialog open karo
+        File → Generate from Script... (Ctrl+G)
+        """
+        try:
+            from src.ui.dialogs import ScriptInputDialog
+
+            logger.info("🎬 Generate from Script dialog open ho raha hai...")
+            self._set_status("🎬 Script Generator open ho raha hai...")
+
+            dialog = ScriptInputDialog(parent=self._window)
+            dialog.exec_()
+
+            # Dialog close hone ke baad status update
+            self._set_status(
+                "✅ Script Generator closed - "
+                "exports/ folder check karo!"
+            )
+
+        except ImportError as e:
+            logger.error(f"ScriptInputDialog import error: {e}")
+
+            # Fallback: Simple error message
+            try:
+                from PyQt5.QtWidgets import QMessageBox
+                QMessageBox.critical(
+                    self._window,
+                    "Error",
+                    f"Script Dialog load nahi hua!\n\n"
+                    f"Error: {e}\n\n"
+                    f"Make sure dialogs.py mein "
+                    f"ScriptInputDialog class hai."
+                )
+            except Exception:
+                pass
+
+        except Exception as e:
+            logger.error(f"Generate from script error: {e}")
+            import traceback
+            traceback.print_exc()
+
+    # ─────────────────────────────────────────────────────────
 
     def _on_undo(self):
         """Undo"""
@@ -921,12 +1057,16 @@ class MainWindow:
         """Toggle theme"""
         if self.theme_manager:
             self.theme_manager.toggle_theme()
-            self._set_status(f"🎨 Theme: {self.theme_manager.get_theme_name()}")
+            self._set_status(
+                f"🎨 Theme: {self.theme_manager.get_theme_name()}"
+            )
 
     def _add_scene_object(self, obj_type: str, name_prefix: str):
         """Scene mein object add karo"""
         if self.scene_model:
-            count = len(self.scene_model.get_objects_by_type(obj_type)) + 1
+            count = (
+                len(self.scene_model.get_objects_by_type(obj_type)) + 1
+            )
             self.scene_model.add_object(
                 f"{name_prefix}.{count:03d}",
                 obj_type,
@@ -977,7 +1117,7 @@ class MainWindow:
             logger.error(f"YouTube upload error: {e}")
 
     def _on_show_shortcuts(self):
-        """Shortcuts help dikhaao"""
+        """Shortcuts help dikhao"""
         if self.shortcuts_manager:
             self.shortcuts_manager.print_shortcuts_table()
             self._set_status("⌨️ Shortcuts printed to console")
@@ -986,7 +1126,9 @@ class MainWindow:
         """GitHub kholo"""
         try:
             import webbrowser
-            webbrowser.open("https://github.com/happyreehal/3d-animation-studio")
+            webbrowser.open(
+                "https://github.com/happyreehal/3d-animation-studio"
+            )
         except Exception:
             pass
 
@@ -1043,7 +1185,8 @@ class MainWindow:
                 if self._current_project_path:
                     dirty = "*" if self._project_dirty else ""
                     self._project_label.setText(
-                        f"{Path(self._current_project_path).stem}{dirty}"
+                        f"{Path(self._current_project_path).stem}"
+                        f"{dirty}"
                     )
                 else:
                     self._project_label.setText("Untitled")
@@ -1064,7 +1207,6 @@ class MainWindow:
             from PyQt5.QtWidgets import QAction
             self._recent_menu.clear()
 
-            # Placeholder
             no_recent = QAction("No recent projects", self._window)
             no_recent.setEnabled(False)
             self._recent_menu.addAction(no_recent)
@@ -1134,48 +1276,48 @@ if __name__ == "__main__":
         from PyQt5.QtWidgets import QApplication
         import sys as _sys
 
-        # QApplication
         app = QApplication.instance() or QApplication(_sys.argv)
         app.setApplicationName("3D Animation Studio")
         app.setOrganizationName("HappyReeHal")
 
         print("✅ QApplication created")
 
-        # Main window
         main_win = create_main_window()
         print(f"✅ Main window built")
         print(f"   Docks: {list(main_win._docks.keys())}")
 
-        # Show maximized
         main_win.show_maximized()
         print("✅ Window shown maximized")
         print("")
-        print("┌──────────────────────────────────────────────────┐")
-        print("│  🎬 3D Animation Studio Ready!                   │")
-        print("├──────────────────────────────────────────────────┤")
-        print("│  • Menu bar: File, Edit, View, Scene, Render     │")
-        print("│  • Toolbar: All main tools                       │")
-        print("│  • Left dock: Scene Hierarchy + Assets           │")
-        print("│  • Center: 3D Viewport (OpenGL)                  │")
-        print("│  • Right dock: Properties Panel                  │")
-        print("│  • Bottom: Timeline                              │")
-        print("│  • Status bar: FPS + RAM + Project info          │")
-        print("├──────────────────────────────────────────────────┤")
-        print("│  Shortcuts:                                      │")
-        print("│  • Ctrl+N     - New Project                      │")
-        print("│  • Ctrl+O     - Open Project                     │")
-        print("│  • Ctrl+S     - Save                             │")
-        print("│  • Ctrl+E     - Export                           │")
-        print("│  • Shift+C    - Add Character                    │")
-        print("│  • Shift+A    - Add Object                       │")
-        print("│  • Shift+L    - Add Light                        │")
-        print("│  • F11        - Fullscreen                       │")
-        print("│  • F12        - Render                           │")
-        print("│  • F1         - Show shortcuts                   │")
-        print("└──────────────────────────────────────────────────┘")
+        print("┌────────────────────────────────────────────────────┐")
+        print("│  🎬 3D Animation Studio Ready!                     │")
+        print("├────────────────────────────────────────────────────┤")
+        print("│  • Menu: File, Edit, View, Scene, Render, Help     │")
+        print("│  • Toolbar: All main tools                         │")
+        print("│  • Left dock: Scene Hierarchy + Assets             │")
+        print("│  • Center: 3D Viewport (OpenGL)                    │")
+        print("│  • Right dock: Properties Panel                    │")
+        print("│  • Bottom: Timeline                                │")
+        print("│  • Status bar: FPS + RAM + Project info            │")
+        print("├────────────────────────────────────────────────────┤")
+        print("│  ✨ NEW FEATURE:                                    │")
+        print("│  • Ctrl+G  - Generate from Script  🎬              │")
+        print("│  • File → Generate from Script...                  │")
+        print("├────────────────────────────────────────────────────┤")
+        print("│  Other Shortcuts:                                  │")
+        print("│  • Ctrl+N  - New Project                           │")
+        print("│  • Ctrl+O  - Open Project                          │")
+        print("│  • Ctrl+S  - Save                                  │")
+        print("│  • Ctrl+E  - Export                                │")
+        print("│  • Shift+C - Add Character                         │")
+        print("│  • Shift+A - Add Object                            │")
+        print("│  • F11     - Fullscreen                            │")
+        print("│  • F12     - Render Frame                          │")
+        print("│  • F1      - Show Shortcuts                        │")
+        print("└────────────────────────────────────────────────────┘")
         print("")
 
-        # Sample scene populate karo
+        # Sample scene
         if main_win.scene_model:
             main_win.scene_model.add_object("Hero", "character")
             main_win.scene_model.add_object("Main Camera", "camera")
@@ -1199,7 +1341,9 @@ if __name__ == "__main__":
                     duration_frames = 150,
                 )
 
-            audio_tracks = main_win.timeline_model.get_tracks_by_type("audio")
+            audio_tracks = main_win.timeline_model.get_tracks_by_type(
+                "audio"
+            )
             if audio_tracks:
                 main_win.timeline_model.add_clip(
                     track_id        = audio_tracks[0].id,
@@ -1208,7 +1352,7 @@ if __name__ == "__main__":
                     duration_frames = 240,
                 )
 
-        # Refresh
+        # Refresh widgets
         if main_win.hierarchy_widget:
             main_win.hierarchy_widget.refresh_tree()
         if main_win.asset_browser and main_win.asset_model:
@@ -1217,12 +1361,11 @@ if __name__ == "__main__":
 
         print("✅ Sample scene loaded")
         print("")
+        print("💡 Test karo: File → Generate from Script... (Ctrl+G)")
         print("💡 Window band karne ke liye X pe click karo...")
         print("")
 
-        # Run event loop
         exit_code = app.exec_()
-
         print(f"\n✅ Application closed | Exit code: {exit_code}")
 
     except ImportError as e:
@@ -1233,4 +1376,7 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
 
-    print_banner("✅ Main Window Complete!", "3D Animation Studio Ready!")
+    print_banner(
+        "✅ Main Window Complete!",
+        "3D Animation Studio Ready!"
+    )
